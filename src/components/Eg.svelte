@@ -1,7 +1,7 @@
 <script>
-  import Hoverable from "./Hoverable.svelte";
+	import Hoverable from "./Hoverable.svelte"
 </script>
 
 <Hoverable shadow={true}
-  ><a href="https://zihan.pages.dev">Hello world</a></Hoverable
+	><a href="https://zihan.pages.dev">Hello world</a></Hoverable
 >

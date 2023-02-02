@@ -1,37 +1,37 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+	import { onMount } from "svelte"
 
-  let el: HTMLDivElement;
+	export let shadow = false
+	export let round = false
 
-  onMount(() => {
-    el?.addEventListener("mouseenter", (e) => {
-      // @ts-ignore
-      globalThis.cursorEnter?.(el);
-    });
+	let el: HTMLDivElement
 
-    el?.addEventListener("mouseleave", (e) => {
-      // @ts-ignore
-      globalThis.cursorLeave?.();
-      if (el) el.style.transform = `none`;
-    });
-  });
+	onMount(() => {
+		el?.addEventListener("mouseenter", (e) => {
+			// @ts-ignore
+			globalThis.cursorEnter?.(el)
+		})
 
-  export let shadow = false;
-  export let round = false;
+		el?.addEventListener("mouseleave", (e) => {
+			// @ts-ignore
+			globalThis.cursorLeave?.()
+			if (el) el.style.transform = `none`
+		})
+	})
 </script>
 
 <div
-  class="hoverable"
-  data-shadow={`${shadow === undefined ? false : shadow}`}
-  data-round={`${round === undefined ? false : round}`}
-  bind:this={el}
+	class="hoverable"
+	data-shadow={`${shadow === undefined ? false : shadow}`}
+	data-round={`${round === undefined ? false : round}`}
+	bind:this={el}
 >
-  <slot />
+	<slot />
 </div>
 
 <style>
-  .hoverable {
-    display: inline-block;
-    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
+	.hoverable {
+		display: inline-block;
+		transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
 </style>
